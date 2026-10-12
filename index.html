@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Night | Find your next film</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">M</span><span>movie<span class="brand-light">night</span></span></a>
+  <div class="topbar-note"><span class="status-dot"></span> YOUR NEXT FAVORITE FILM AWAITS</div>
+</header>
+<main class="page-shell">
+  <section class="hero">
+    <div><p class="eyebrow">THE MOVIE NIGHT COLLECTION</p><h1>Less scrolling.<br><span>More watching.</span></h1>
+    <p class="hero-description">A hand-picked collection for whatever kind of night you're having.</p></div>
+    <div class="hero-stamp" aria-hidden="true"><span class="stamp-top">TONIGHT'S</span><span class="stamp-main">PICK</span><span class="stamp-bottom">STARTS HERE</span></div>
+  </section>
+  <section class="controls-panel" aria-label="Movie controls">
+    <div class="search-wrap"><label class="sr-only" for="searchInput">Search by movie title</label><span class="search-icon">⌕</span><input id="searchInput" type="search" placeholder="Search movies by title..." autocomplete="off"></div>
+    <div class="filter-row">
+      <div class="filter-control"><label for="genreFilter">GENRE</label><select id="genreFilter"><option value="All">All genres</option><option>Sci-Fi</option><option>Drama</option><option>Action</option><option>Thriller</option><option>Animation</option><option>Adventure</option><option>Comedy</option></select></div>
+      <div class="filter-control"><label for="ratingFilter">MINIMUM RATING</label><select id="ratingFilter"><option value="0">Any rating</option><option value="4">4.0 and above</option><option value="4.5">4.5 and above</option><option value="4.7">4.7 and above</option></select></div>
+      <button id="resetButton" class="button button-quiet" type="button">Reset filters</button>
+    </div>
+  </section>
+  <section class="section-heading"><div><p class="eyebrow">CURATED FOR YOUR NEXT BREAK</p><h2>Explore movies <span id="movieCount" class="count-pill">12 films</span></h2></div>
+    <div class="heading-actions"><button id="surpriseButton" class="button button-outline" type="button">✳ Surprise me</button><button id="watchlistToggle" class="button button-dark" type="button">♡ Watchlist <span id="watchlistCount" class="button-count">0</span></button></div>
+  </section>
+  <div id="surpriseMessage" class="notice" role="status" aria-live="polite" hidden></div>
+  <div id="watchlistMessage" class="notice notice-subtle" role="status" aria-live="polite" hidden></div>
+  <section id="movieGrid" class="movie-grid" aria-label="Movie collection"></section>
+  <section id="emptyState" class="empty-state" hidden><div class="empty-icon">⌕</div><h3>No movies found</h3><p>Try changing your search or resetting the filters.</p><button id="emptyResetButton" class="button button-dark" type="button">Show all movies</button></section>
+  <footer class="page-footer"><span>MADE FOR GOOD MOVIE NIGHTS</span><span>12 films · One difficult decision</span></footer>
+</main>
+</body></html>
