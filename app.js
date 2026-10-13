@@ -18,7 +18,7 @@ const watchlistCount=document.querySelector("#watchlistCount");
 const watchlistMessage=document.querySelector("#watchlistMessage");
 
 // CHALLENGE 1: restore saved movie IDs from localStorage instead of starting empty.
-let watchlist=[];
+let watchlist = JSON.parse(localStorage.getItem("watchlist") || "[]");
 let showingWatchlist=false;
 let visibleMovies=[...movies];
 
@@ -62,13 +62,14 @@ function applyFilters(){
 }
 
 function toggleWatchlist(movieId){
-  /*
-   * CHALLENGE 1:
-   * - Remove the ID if it is already saved; otherwise add it.
-   * - Save the array in localStorage.
-   * - Re-apply filters and update the watchlist count.
-   */
-  console.info("Implement watchlist add/remove for movie",movieId);
+  const idx = watchlist.indexOf(movieId);
+  if (idx !== -1) {
+    watchlist.splice(idx, 1);
+  } else {
+    watchlist.push(movieId);
+  }
+  localStorage.setItem("watchlist", JSON.stringify(watchlist));
+  applyFilters();
 }
 
 function showSurpriseMovie(){
