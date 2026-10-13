@@ -84,15 +84,14 @@ function toggleWatchlist(movieId) {
 }//challenge-1 done.
 
 function showSurpriseMovie() {
-  /*
-   * CHALLENGE 3:
-   * Choose a random movie from the current filtered results.
-   * Handle an empty result list without crashing.
-   * Display the selected title in surpriseMessage.
-   */
   surpriseMessage.hidden = false;
-  surpriseMessage.textContent = "Implement Surprise Me: choose from the current results.";
-}
+  if (visibleMovies.length === 0) {
+    surpriseMessage.textContent = "No movies to pick from — try resetting your filters.";
+    return;
+  }
+  const pick = visibleMovies[Math.floor(Math.random() * visibleMovies.length)];
+  surpriseMessage.textContent = `🎬 Tonight's pick: "${pick.title}" (${pick.year}) — ★ ${pick.rating.toFixed(1)}`;
+} // challenge-3 done.
 
 function showWatchlist() {
   showingWatchlist = !showingWatchlist;
